@@ -1,0 +1,13 @@
+.git/
+node_modules/
+src/
+test/
+typings/
+examples/
+npm-debug.log
+webpack.*
+tsconfig.json
+typings.json
+.vscode
+.gitignore
+.npmignore

@@ -1,0 +1,39 @@
+{
+  "name": "vote-results",
+  "version": "0.1.0",
+  "description": "Vote Results",
+  "keywords": [],
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha --compilers ts:node_modules/espower-typescript/guess test/**/*.ts",
+    "watch": "mocha -w --compilers ts:node_modules/espower-typescript/guess test/**/*.ts",
+    "dev": "cross-env NODE_ENV=development webpack -v -w",
+    "build": "cross-env NODE_ENV=production webpack -p",
+    "deploy": "gh-pages -d examples/public",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wadahiro/vote-results.git"
+  },
+  "author": "Hiroyuki Wada",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wadahiro/vote-results/issues"
+  },
+  "homepage": "https://github.com/wadahiro/vote-results#readme",
+  "devDependencies": {
+    "cross-env": "^1.0.7",
+    "gh-pages": "^0.11.0",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "typings": "lib/index.d.ts",
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-progressbar": "^1.2.0"
+  }
+}

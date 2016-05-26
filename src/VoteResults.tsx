@@ -12,12 +12,21 @@ export interface Props extends React.Props<VoteResults> {
 export class VoteResults extends React.Component<Props, void>{
     render() {
         const colors = make_color_chart(this.props.data.length);
+        const data = this.props.data.concat().sort((a, b) => {
+            if (a < b) {
+                return -1;
+            }
+            if (a > b) {
+                return 1;
+            }
+            return 0;
+        });
         return (
             <div className='row'>
-                {this.props.data.map((x, i) => {
+                {data.map((x, i) => {
                     return <div key={x.name}>
                         <hr />
-                        <label>{x.name}: {x.vote}</label>
+                        <h6>{x.name}: {x.vote}</h6>
                         <Progress completed={x.vote} color={`rgb(${colors[i]})`} height={50}>
                         </Progress>
                         <hr />

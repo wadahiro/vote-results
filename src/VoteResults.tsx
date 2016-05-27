@@ -6,19 +6,25 @@ export interface Props extends React.Props<VoteResults> {
         name: string;
         vote: number
     }[];
+    max: number;
     test: string;
 }
 
 export class VoteResults extends React.Component<Props, void>{
+    static defaultProps = {
+        max: 50
+    };
     render() {
         const colors = make_color_chart(this.props.data.length);
         return (
             <div className='row'>
                 {this.props.data.map((x, i) => {
+                    const vote = x.vote;
+                    const completed = vote * (100 / this.props.max);
                     return <div key={x.name}>
                         <hr />
-                        <h6>{x.name}: {x.vote}</h6>
-                        <Progress completed={x.vote} color={`rgb(${colors[i]})`} height={50}>
+                        <h6>{x.name}: {vote}</h6>
+                        <Progress completed={completed} color={`rgb(${colors[i]})`} height={50}>
                         </Progress>
                         <hr />
                     </div>;
